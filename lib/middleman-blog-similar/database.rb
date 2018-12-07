@@ -13,6 +13,7 @@ module Middleman
         def initialize(path, taggers)
           ActiveRecord::Base.establish_connection(
             adapter: 'sqlite3',
+            pool: 10,
             database: path
           )
           Migration.apply
